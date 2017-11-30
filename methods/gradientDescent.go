@@ -14,21 +14,29 @@ func (p Point) deduct(p1 Point) Point {
 }
 
 func GradientDescent(itCount int, curr Point, eps, lambda float64) Point {
+	isAnswer := false
 	for i := 0; i < itCount; i++ {
-		grad := Grad(curr) // start
+		grad := Grad(curr)
 
 		if vectorLength(grad) < eps {
 			return curr
 		}
 
-		next := nextPoint(lambda, curr, grad);
-		for step := lambda / 2; F(next) - F(curr) >= 0; step /= 2 {
-			next = nextPoint(step, curr, grad)
+		next := nextPoint(lambda, curr, grad)
+		for F(next)-F(curr) >= 0 {
+			lambda /= 2
+			next = nextPoint(lambda, curr, grad)
 		}
 
 		if vectorLength(next.deduct(curr)) < eps &&
-			math.Abs(F(next) - F(curr)) < eps {
-			return next
+			math.Abs(F(next)-F(curr)) < eps {
+			if isAnswer {
+				return next
+			} else {
+				isAnswer = true
+			}
+		} else if isAnswer {
+			isAnswer = false
 		}
 
 		curr = next
