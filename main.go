@@ -4,24 +4,24 @@ import "fmt"
 import "./methods"
 
 var (
-	x0 = 0.0
-	y0 = 0.0
+	x0 = 0.5
+	y0 = 1.0
 
 	eps = 0.1
 
-	lambda = 0.5
+	lambda = 1.0
 )
 
-func init() {
-	fmt.Println("Введите x0: ")
-	fmt.Scan(&x0)
-
-	fmt.Println("Введите y0: ")
-	fmt.Scan(&y0)
-
-	fmt.Println("Введите точность: ")
-	fmt.Scan(&eps)
-}
+//func init() {
+//	fmt.Println("Введите x0: ")
+//	fmt.Scan(&x0)
+//
+//	fmt.Println("Введите y0: ")
+//	fmt.Scan(&y0)
+//
+//	fmt.Println("Введите точность: ")
+//	fmt.Scan(&eps)
+//}
 
 func main() {
 	start := methods.Point{x0, y0}

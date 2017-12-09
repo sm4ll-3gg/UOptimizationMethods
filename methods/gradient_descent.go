@@ -4,19 +4,10 @@ import "math"
 
 // Метод градиентного спуска
 
-type Point struct {
-	X float64
-	Y float64
-}
-
-func (p Point) deduct(p1 Point) Point {
-	return Point{p.X - p1.X, p.Y - p1.Y}
-}
-
 func GradientDescent(itCount int, curr Point, eps, lambda float64) Point {
 	isAnswer := false
 	for i := 0; i < itCount; i++ {
-		grad := Grad(curr)
+		grad := grad(curr)
 
 		if vectorLength(grad) < eps {
 			return curr
