@@ -4,10 +4,10 @@ import "fmt"
 import "./methods"
 
 var (
-	x0 = 0.5
-	y0 = 1.0
+	x0 = 0.0
+	y0 = 0.0
 
-	eps = 0.1
+	eps = 0.01
 
 	lambda = 1.0
 )
@@ -25,6 +25,6 @@ var (
 
 func main() {
 	start := methods.Point{x0, y0}
-	p := methods.GradientDescent(10, start, eps, lambda)
+	p := methods.ConjugateGradients(3, start, eps)
 	fmt.Printf("x = %f; y = %f;\nf(x,y) = %f", p.X, p.Y, methods.F(p))
 }
