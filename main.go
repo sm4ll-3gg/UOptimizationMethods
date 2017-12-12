@@ -25,6 +25,6 @@ var (
 
 func main() {
 	start := methods.Point{x0, y0}
-	p := methods.ConjugateGradients(3, start, eps)
+	p := methods.GradientDescent(10, start, eps, lambda)
 	fmt.Printf("x = %f; y = %f;\nf(x,y) = %f", p.X, p.Y, methods.F(p))
 }
