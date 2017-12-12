@@ -26,19 +26,16 @@ func (p Point) equal(other Point) bool {
 // Функция для которой находится минимум
 func F(p Point) float64 {
 	return math.Pow(p.X, 3) + math.Pow(p.Y, 2) - 3*p.X - 2*p.Y + 2
-	//return 8*math.Pow(p.X, 2) + 4*p.X*p.Y + 5*math.Pow(p.Y, 2)
 }
 
 // Частная производная функции F по X в точке p
 func dFdx(p Point) float64 {
 	return 3*math.Pow(p.X, 2) - 3
-	//return 8*p.X - 4*p.Y + 1
 }
 
 // Частная производная функции F по Y в точке p
 func dFdy(p Point) float64 {
 	return 2*p.Y - 2
-	//return 6*p.Y - 4*p.X
 }
 
 // Градиент функции F в точке p
