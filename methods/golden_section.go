@@ -3,8 +3,8 @@ package methods
 import "math"
 
 const (
-	BEGIN = 0.0
-	END   = 1000.0
+	BEGIN = -10000.0
+	END   = 10000.0
 )
 
 var PHI = (3 - math.Sqrt(5)) / 2

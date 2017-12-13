@@ -26,7 +26,8 @@ func PaulsMethod(curr Point, eps float64) Point {
 		d1 = d1.multiply(h1)
 		d2 = d2.multiply(h2)
 
-		if math.Abs(vectorLength(curr)-vectorLength(next)) > eps {
+		len := math.Abs(vectorLength(curr) - vectorLength(next))
+		if len < eps {
 			return next
 		}
 	}

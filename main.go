@@ -4,10 +4,10 @@ import "fmt"
 import "./methods"
 
 var (
-	x0 = 0.0
-	y0 = 0.0
+	x0 = 1.0
+	y0 = 2.0
 
-	eps = 0.01
+	eps = 0.001
 
 	lambda = 1.0
 
@@ -42,12 +42,15 @@ func main() {
 	p = methods.PaulsMethod(start, eps)
 	echo("Сопряженных напрвлений", p)
 
-	p = methods.GradientDescent(maxIt, p, eps, lambda)
+	p = methods.GradientDescent(maxIt, start, eps, lambda)
 	echo("Градиентного спуска", p)
 
-	p = methods.ConjugateGradients(maxIt, p, eps)
+	p = methods.ConjugateGradients(3, start, eps)
 	echo("Сопряженных градиентов", p)
 
-	p = methods.Newton(maxIt, p, eps, lambda)
+	p = methods.Newton(maxIt, start, eps, lambda)
 	echo("Метод Ньютона", p)
+
+	p = methods.Dfp(start, eps)
+	echo("Давидона-Флетчера-Пауэлла", p)
 }

@@ -7,7 +7,7 @@ import (
 
 func hessian(p Point) [2][2]float64 {
 	// Частные производные F второго порядка в точке p
-	d2Fdx2 := 6 * p.X
+	d2Fdx2 := 2.0
 	d2Fdy2 := 2.0
 	d2Fdxdy := 0.0
 
